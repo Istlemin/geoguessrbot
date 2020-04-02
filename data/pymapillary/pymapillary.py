@@ -113,8 +113,8 @@ class Mapillary():
         r = None
         while r == None or r.status_code != 200:
             try:
-                r = requests.get(url, params=data, timeout=10)
-            except:
+                r = requests.get(url, params=data, timeout=60)
+            except requests.exceptions.ReadTimeout:
                 print(url)
                 print(data)
                 print(r)
