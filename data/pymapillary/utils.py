@@ -38,10 +38,12 @@ def download_image_by_key(key, image_resolution=320, download_path=None):
     while filename == None:
         try:
             filename = wget.download(url, download_path, bar=None)
-        except:
+        except requests.exceptions.ReadTimeout:
             print(url)
             print("No connection, retrying in 1 min")
             time.sleep(60)
+        except:
+            pass
 
     return True
 
