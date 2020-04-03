@@ -32,7 +32,12 @@ def get_country_by_coordinates(lat, lon):
 
 
 def format_image(image_path):
-    img = cv2.imread(image_path)
+    try:
+        img = cv2.imread(image_path)
+    except:
+        print("No such image: " + image_path)
+        return
+
     if img.shape[1] < IMAGE_WIDTH:
         img = np.append(img, np.zeros(
             (img.shape[0], IMAGE_WIDTH-img.shape[1], 3)), axis=1)
@@ -51,7 +56,7 @@ def format_image(image_path):
     else:
         img = img[:bar_bottom, :]
 
-    cv2.imwrite(image_path, img)
+    cv2.imwrite(image_path, img,[int(cv2.IMWRITE_JPEG_QUALITY), 65])
 
 
 class LocationSaver:
