@@ -1,5 +1,6 @@
 _map*
-data/locationsMapillary/*
+data/locations*/*
+data/privateData.py
 .pylintrc
 
 # Byte-compiled / optimized / DLL files
