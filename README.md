@@ -9,4 +9,6 @@ Soon this bot will get perfect score on geoguessr
 - Self build text recognition
     - Maybe recognising different scripts, not just latin alphabet
 - Recognizing road signs using https://www.mapillary.com/dataset/trafficsign
+- Guessing latitude (or maybe only hemisphere) based on position of sun
+- Recognizing left or right hand traffic
 
