@@ -19,7 +19,8 @@ from privateData import GEOGUESSR_SESSISON_ID
 
 SAVE_PATH = "locationsGeoguessr/"
 URBAN_WORLD_URL = "https://www.geoguessr.com/maps/5b3d510b7a2b425ef47b54fd/play"
-
+WORLD_URL = "https://www.geoguessr.com/maps/world"
+ACTIVE_MAP = WORLD_URL
 
 class GeoguessrDownloader:
     def __init__(self):
@@ -34,7 +35,7 @@ class GeoguessrDownloader:
             "HOME")+"/applications/chromedriver/chromedriver"
         self.driver = webdriver.Chrome(
             options=chrome_options, executable_path=chrome_driver)
-        self.driver.get(URBAN_WORLD_URL)
+        self.driver.get(ACTIVE_MAP)
         self.driver.add_cookie(
             {"domain": "geoguessr.com", "name": "_ncfa", "value": GEOGUESSR_SESSISON_ID})
 
@@ -48,7 +49,7 @@ class GeoguessrDownloader:
         return jsonRes["rounds"][0]["lat"],jsonRes["rounds"][0]["lng"]
 
     def get_random_location(self):
-        self.driver.get(URBAN_WORLD_URL)
+        self.driver.get(ACTIVE_MAP)
         play_button = self.driver.find_elements_by_css_selector(
             '.game-settings__section .button')[0]
         play_button.click()
