@@ -17,9 +17,9 @@ from privateData import GEOGUESSR_SESSISON_ID
 
 
 
-SAVE_PATH = "locationsGeoguessr/"
+SAVE_PATH = "locationsGeoguessrUrbanWorld/"
 URBAN_WORLD_URL = "https://www.geoguessr.com/maps/5b3d510b7a2b425ef47b54fd/play"
-WORLD_URL = "https://www.geoguessr.com/maps/world"
+WORLD_URL = "https://www.geoguessr.com/maps/world/play"
 ACTIVE_MAP = WORLD_URL
 
 class GeoguessrDownloader:
