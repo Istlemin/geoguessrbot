@@ -1,4 +1,5 @@
 _map*
+data/mapillaryTrafficSigns/*
 data/locations*/*
 data/privateData.py
 .pylintrc
