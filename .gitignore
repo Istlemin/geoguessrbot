@@ -1,3 +1,5 @@
+*cache*
+*.zip
 _map*
 data/mapillaryTrafficSigns/*
 data/locations*/*
