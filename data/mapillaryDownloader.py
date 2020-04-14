@@ -7,7 +7,7 @@ from downloaderUtils import LocationSaver, format_image
 IMAGE_WIDTH = 1024
 IMAGE_HEIGH = 768
 SAVE_PATH = "locationsMapillary/"
-MAX_PER_REQUEST = 10000
+MAX_PER_REQUEST = 1000
 
 
 class MapillaryLocationDownloader:
