@@ -13,7 +13,7 @@ class NoInputModel:
         self.model.add(layers.Dense(2, input_shape=(1,)))
         print(self.model.summary())
 
-        self.model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.1),
+        self.model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.02),
                            loss=tf.keras.losses.MeanSquaredError())
 
     def nullify_input(self, img,label):
