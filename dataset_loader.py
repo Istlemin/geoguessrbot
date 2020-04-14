@@ -34,5 +34,5 @@ class DatasetLoader():
         indices = np.arange(start_index,end_index)
         ds_indices = tf.data.Dataset.from_tensor_slices(indices)
         datset = ds_indices.map(self.read_from_index, num_parallel_calls=tf.data.experimental.AUTOTUNE)
-        return datset.cache(cache_file + ".cache").shuffle(batch_size).batch(batch_size)
+        return datset.cache("dataset_cache/"+cache_file).shuffle(batch_size).batch(batch_size)
 
