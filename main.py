@@ -53,9 +53,9 @@ def predict_images(models, images_to_predict,labels_to_predict):
 
 
 def main():
-    dataset_loader = DatasetLoader("../geoguessrLocations/geo/",(48,64),"coordinates")
-    train_dataset = dataset_loader.load_dataset(0,90000,"train_dataset")
-    val_dataset = dataset_loader.load_dataset(90000,100000,"validation_dataset")
+    dataset_loader = DatasetLoader("../geoguessrBotDatasets/geoguessrWorld/",(48,64),"coordinates")
+    train_dataset = dataset_loader.load_dataset(0,9000,"train_dataset")
+    val_dataset = dataset_loader.load_dataset(9000,10000,"validation_dataset")
 
     models = {
         "CNN": CNNModel(),
@@ -66,7 +66,7 @@ def main():
     training_loss_histories = dict()
 
     for model_name,model in models.items():
-        model.train(train_dataset,val_dataset,5)
+        model.train(train_dataset,val_dataset,100)
         training_loss_histories[model_name] = model.training_loss_history
         validation_loss_histories[model_name] = model.validation_loss_history
 

@@ -1,6 +1,6 @@
 import os
 import json
-
+import codecs
 
 def reindex_locations(input_folders, output_folder):
     assert(output_folder[-1] == "/")
@@ -24,18 +24,18 @@ def json_to_csv(folders):
         for j,file_name in enumerate(file_names):
             if file_name[-5:] == ".json":
                 csv_string = ""
-                with open(folder+file_name, "r") as f:
+                with codecs.open(folder+file_name, "r", "utf-8") as f:
                     json_data = json.load(f)
                 for i, column_name in enumerate(column_names):
                     if i != 0:
                         csv_string += ","
                     csv_string += str(json_data[column_name])
                 csv_string += "\n"
-                with open(folder+file_name[:-5]+".csv", "w") as f:
+                with codecs.open(folder+file_name[:-5]+".csv", "w", "utf-8") as f:
                     f.write(csv_string)
                 if j%100==0:
                     print(j)
 
 
-json_to_csv(["../../geoguessrLocations/geo/"])
+json_to_csv(["../../geoguessrBotDatasets/geoguessrWorld/"])
 # reindex_locations(["locationsGeoguessr/"],"locationGeoguessrx/")
