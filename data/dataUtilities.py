@@ -21,7 +21,7 @@ def json_to_csv(folders):
     column_names = ["lat", "lon", "country", "country_code"]
     for folder in folders:
         file_names = os.listdir(folder)
-        for file_name in file_names:
+        for j,file_name in enumerate(file_names):
             if file_name[-5:] == ".json":
                 csv_string = ""
                 with open(folder+file_name, "r") as f:
@@ -33,7 +33,9 @@ def json_to_csv(folders):
                 csv_string += "\n"
                 with open(folder+file_name[:-5]+".csv", "w") as f:
                     f.write(csv_string)
+                if j%100==0:
+                    print(j)
 
 
-json_to_csv(["locationsGeoguessr/"])
+json_to_csv(["../../geoguessrLocations/geo/"])
 # reindex_locations(["locationsGeoguessr/"],"locationGeoguessrx/")

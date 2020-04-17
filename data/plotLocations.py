@@ -3,7 +3,7 @@ import mplleaflet
 import os
 import json
 
-PATH = "locationsMapillary/"
+PATH = "locationsGeoguessr/"
 
 def main():
     lat = []
